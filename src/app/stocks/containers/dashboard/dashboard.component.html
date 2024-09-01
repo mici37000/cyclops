@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="search row d-flex justify-content-center mb-4">
+    <div class="col-auto col-12 col-md-6">
+      <input
+        #searchStocksText
+        type="text"
+        id="searchStocksText"
+        class="form-control text-center"
+        placeholder="Type company name or symbol"
+        maxlength="30"
+        autofocus />
+    </div>
+  </div>
+  @if (stocksForDisplay$ | async; as stocks) {
+    @if (stocks.length > 0) {
+      <div class="stocks-container row row-cols-1 row-cols-md-3 row-cols-xl-4 g-4">
+        @for (s of stocks; track s) {
+          <div class="stock col">
+            <div class="card h-100">
+              <div class="card-body">
+                <h6 class="card-title">{{ s.companyName }} ({{ s.symbol }})</h6>
+                <div class="card-text">
+                  <div class="card-row"><span class="field">Price:</span> {{ s.currentPrice }}</div>
+                  <div class="card-row">
+                    <span class="field">Change:</span> <span [outerHTML]="s.percentageChange | stockChange"></span>
+                  </div>
+                  <div class="card-row">
+                    <span class="field">Market:</span> <span [class]="s.marketStatus">{{ s.marketStatus }}</span>
+                  </div>
+                  <div class="card-row mt-3 float-end">
+                    <button class="details-btn btn btn-sm bg-color" [routerLink]="['/stock', s.symbol]">More details</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <alert type="warning">No stocks corresponds your search</alert>
+    }
+  } @else {
+    <alert type="warning">No stocks to display</alert>
+  }
+</div>

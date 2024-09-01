@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  @if (activeStock$ | async; as s) {
+    <div class="row mb-4">
+      <div class="card col-md-6">
+        <div class="card-body">
+          <h6 class="card-title">{{ s.companyName }} ({{ s.symbol }})</h6>
+          <div class="card-text">
+            <div class="card-row"><span class="field">Price:</span> {{ s.currentPrice }}</div>
+            <div class="card-row"><span class="field">Low:</span> {{ s.low }}</div>
+            <div class="card-row"><span class="field">High:</span> {{ s.high }}</div>
+            <div class="card-row"><span class="field">Change:</span> <span [outerHTML]="s.percentageChange | stockChange"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <h4 class="primary-color my-3">Historical prices</h4>
+        <table class="table table-striped table-dark">
+          <thead>
+            <th>Date</th>
+            <th>Price</th>
+          </thead>
+          <tbody>
+            @for (d of s.historicalData; track d) {
+              <tr>
+                <td>{{ d.date }}</td>
+                <td>{{ d.price }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 col-md-6">
+        <h4 class="primary-color my-3">Price trends</h4>
+        <app-chart [type]="chartType" [data]="chartData"></app-chart>
+      </div>
+    </div>
+  } @else {
+    <alert type="warning">No data was found for symbol {{ symbol }}</alert>
+  }
+</div>

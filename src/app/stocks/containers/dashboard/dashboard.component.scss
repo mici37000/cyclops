@@ -1,0 +1,17 @@
+@import '../../../../assets/styles/variables';
+
+.card-row {
+  display: flex;
+
+  .field {
+    flex-grow: 1;
+  }
+
+  .open {
+    color: var(--white-color);
+  }
+
+  .closed {
+    color: var(--gray-color);
+  }
+}

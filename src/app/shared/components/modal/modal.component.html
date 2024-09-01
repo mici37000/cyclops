@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">{{ title }}</h5>
+</div>
+<div class="modal-body">
+  <ng-template appPlaceholder />
+</div>
+<div class="modal-footer">
+  @for (btn of buttons; track btn.text) {
+    <ng-container>
+      <button type="button" class="btn btn-sm {{ btn.class }}" (click)="btn.cb()" [disabled]="btn.disabled">{{ btn.text }}</button>
+    </ng-container>
+  }
+</div>

@@ -1,0 +1,17 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
+  "rules": {
+    "selector-not-notation": null,
+    "no-descending-specificity": null,
+    "scss/double-slash-comment-empty-line-before": ["always", { "ignore": ["inside-block"] }],
+    "scss/double-slash-comment-whitespace-inside": null,
+    "declaration-block-single-line-max-declarations": 2,
+    "number-max-precision": 7
+  },
+  "overrides": [
+    {
+      "files": ["**/*.scss"],
+      "customSyntax": "postcss-scss"
+    }
+  ]
+}

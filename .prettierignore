@@ -1,0 +1,5 @@
+angular.json
+src/polyfills.ts
+e2e/
+.angular/
+dist/

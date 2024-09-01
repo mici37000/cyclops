@@ -1,0 +1,44 @@
+@import '../../../../assets/styles/variables';
+
+.site-footer {
+  background-color: var(--dark-color);
+  border-top: 1px solid #efebeb;
+  padding: 1.5rem 0;
+
+  a {
+    color: var(--gray-color);
+    font-weight: var(--font-weight-light);
+  }
+
+  p {
+    font-size: var(--base-font-size);
+  }
+
+  .contact {
+    text-align: right;
+
+    .ng-fa-icon {
+      margin-inline-start: 8px;
+      color: var(--primary-color);
+    }
+  }
+}
+
+// Mobile & Tablet styles
+@media screen and (max-width: $tablet-max-width) {
+  .site-footer {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: $mobile-max-width) and (max-width: $tablet-max-width) {
+  // Tablet styles
+}
+
+@media screen and (max-width: $mobile-max-width) {
+  .site-footer {
+    .contact {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "root": true,
+  "env": {
+    "browser": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "ecmaVersion": "2022"
+  },
+  "plugins": ["@html-eslint"],
+  "rules": {},
+  "extends": [],
+  "overrides": [
+    {
+      "files": ["*.js", "*.ts"],
+      "extends": [
+        "airbnb-base",
+        "airbnb-typescript/base",
+        "prettier",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "quotes": "off",
+        "object-curly-spacing": "off",
+        "object-curly-newline": "off",
+        "indent": "off",
+        "comma-dangle": "off",
+        "import/prefer-default-export": "off",
+        "lines-between-class-members": "off",
+        "no-underscore-dangle": "off",
+        "function-paren-newline": "off",
+        "semi": ["error", "always"],
+        "no-console": "off",
+        "max-len": ["error", { "code": 140 }],
+        "import/order": "off",
+        "class-methods-use-this": ["error", { "exceptMethods": ["intercept"] }],
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/quotes": "off",
+        "@typescript-eslint/object-curly-spacing": "off",
+        "@typescript-eslint/lines-between-class-members": "off",
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "default",
+            "format": null,
+            "leadingUnderscore": "allow"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "parser": "@html-eslint/parser",
+      "extends": [
+        "plugin:@html-eslint/recommended",
+        "prettier"
+      ],
+      "rules": {
+        "max-len": [
+          "error",
+          {
+            "code": 150
+          }
+        ],
+        "@html-eslint/require-doctype": "off",
+        "@html-eslint/no-trailing-spaces": "error",
+        "@html-eslint/no-multiple-empty-lines": ["error", { "max": 1 }],
+        "@html-eslint/require-closing-tags": ["error", { "selfClosing": "always" }],
+        "@html-eslint/no-extra-spacing-attrs": ["error", { "enforceBeforeSelfClose": true }],
+        "@html-eslint/indent": "off"
+      }
+    }
+  ]
+}

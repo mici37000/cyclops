@@ -1,0 +1,15 @@
+@import '../assets/styles/variables';
+
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  main {
+    flex-grow: 1;
+    margin-block-start: 74px;
+    padding-block-start: 20px;
+    padding-bottom: 20px;
+    background-color: var(--bg-color);
+  }
+}

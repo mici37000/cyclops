@@ -1,0 +1,90 @@
+@import './variables';
+
+//  Card
+$card-bg: var(--bg-color);
+$card-border-color: var(--gray-color);
+$card-cap-bg: var(--light-color);
+
+//  Modal
+$modal-content-bg: var(--bg-color);
+$modal-content-border-width: 2px;
+$modal-content-border-color: var(--gray-color);
+$modal-header-border-width: 1px;
+$modal-footer-border-width: 1px;
+$modal-content-border-radius: 5px;
+
+// Select
+$form-select-color: var(--bg-color);
+$form-select-bg: var(--white-color);
+$form-select-indicator-color: #000;
+
+.form-select {
+  option {
+    color: var(--bg-color);
+  }
+}
+
+// Button
+$btn-padding-y: 10px;
+$btn-padding-x: 20px;
+$btn-font-size: var(--menu-font-size);
+$btn-color: var(--white-color);
+$btn-font-weight: var(--font-weight-normal);
+$btn-border-radius: var(--border-radius-small);
+$btn-border-radius-sm: var(--border-radius-small);
+$btn-border-radius-lg: var(--border-radius-small);
+
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+.card {
+  .card-header {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .card-body {
+    .card-title {
+      color: var(--primary-color);
+    }
+
+    .card-text {
+      .field {
+        color: var(--light-color);
+
+        &:not(:first-child) {
+          margin-inline-start: 10px;
+        }
+      }
+    }
+  }
+}
+
+.modal-dialog {
+  .modal-content {
+    box-shadow: 0 0 6px 4px var(--primary-color);
+  }
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+
+  .form-check-input {
+    margin-inline-end: 5px;
+  }
+}
+
+.alert-danger {
+  --bs-alert-bg: var(--danger-color);
+  --bs-alert-border: var(--bs-border-width) solid var(--danger-border-color);
+  --bs-alert-color: var(--white-color);
+  --bs-alert-link-color: var(--white-color);
+}
+
+.float-start {
+  float: left !important;
+}
+
+.float-end {
+  float: right !important;
+}
