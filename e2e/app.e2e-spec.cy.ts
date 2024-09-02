@@ -6,6 +6,11 @@ describe('E2E tests for Stocks functionality', () => {
     cy.get('.stocks-container').should('exist');
     cy.get('#searchStocksText').as('searchTB');
 
+    // Perform search of non existing stock
+    cy.get('@searchTB').type('TENCENT');
+    cy.get('.alert').should('exist');
+    cy.get('@searchTB').clear();
+
     // Perform some search and drill down
     cy.get('@searchTB').type('AMZN');
     cy.get('.card-title').should('contain', 'AMZN');
